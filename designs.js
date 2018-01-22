@@ -6,7 +6,9 @@ let size = document.getElementById('sizePicker');
 
 let table = document.getElementById('pixel_canvas');
 
-//make a eveny listener or onClick() on the submit button and (re)assign values for width and height
+// make a eveny listener or onClick() on the submit button and (re)assign values for width and height
+// add event listener for a <td> in the loop
+// add function to change the backgroundColor
 
 function makeGrid(gridHeight, gridWidth) {
     for (var y = 0; y < gridHeight; y++) {
@@ -22,6 +24,8 @@ function makeGrid(gridHeight, gridWidth) {
     }
 };
 
+// on click on submit button get width and height and run makeGrid function
+
 size.addEventListener('submit', function(event) {
     event.preventDefault();
     table.innerHTML = ' ';
@@ -29,5 +33,3 @@ size.addEventListener('submit', function(event) {
     let gridWidth = document.getElementById('input_width').value;
     makeGrid(gridHeight, gridWidth);
 });
-
-// select cell and change background to a different color
