@@ -1,6 +1,3 @@
-// Select color input
-let color = document.getElementById('colorPicker').value;
-
 // Select size input
 let size = document.getElementById('sizePicker');
 
@@ -9,6 +6,7 @@ let table = document.getElementById('pixel_canvas');
 
 // make an event listener or onClick() on the submit button and (re)assign values for width and height
 // add event listener for a <td> in the loop
+// select color input
 // add function to change the backgroundColor
 
 function makeGrid(gridHeight, gridWidth) {
@@ -18,7 +16,8 @@ function makeGrid(gridHeight, gridWidth) {
         for (var x = 0; x < gridWidth; x++) {
             let cellNode = document.createElement('td');
             row.appendChild(cellNode);
-            cellNode.addEventListener('click', function(color) {
+            cellNode.addEventListener('click', function() {
+                let color = document.getElementById('colorPicker').value;
                 cellNode.style.backgroundColor = color;
             });
         }
