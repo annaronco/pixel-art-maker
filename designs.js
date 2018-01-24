@@ -11,14 +11,13 @@ let table = document.getElementById('pixel_canvas');
 
 function makeGrid(gridHeight, gridWidth) {
     for (var y = 0; y < gridHeight; y++) {
-        let rowNode = document.createElement('tr');
-        let row = table.appendChild(rowNode);
+        let row = table.insertRow();
         for (var x = 0; x < gridWidth; x++) {
-            let cellNode = document.createElement('td');
-            row.appendChild(cellNode);
-            cellNode.addEventListener('click', function() {
-                let color = document.getElementById('colorPicker').value;
-                cellNode.style.backgroundColor = color;
+            let cell = row.insertCell();
+            cell.addEventListener('mouseover', function() { // figure out how to listen to 2 events at the same time to drow when the mouse is pressed and dragged
+                cell.addEventListener('mousedown', function() {
+                    cell.style.backgroundColor = document.getElementById('colorPicker').value;
+                });
             });
         }
     }
